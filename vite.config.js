@@ -8,7 +8,7 @@ export default defineConfig({
     tailwindcss(),
   ],
 
-  server: {
+  server:{
     historyApiFallback: true,
   },
   
