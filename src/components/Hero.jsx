@@ -13,7 +13,7 @@ function Hero() {
         muted
         
         src={banner}
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover  opacity-90"
       ></video>
 
 
@@ -63,7 +63,7 @@ function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: [0.2, 0.6, 0.2] }}
         transition={{ repeat: Infinity, duration: 5, delay: 1 }}
-        className="absolute w-72 h-72 bg-cyan-400/30 blur-3xl rounded-full bottom-10 right-10"
+        className="absolute w-72 h-72 bg-cyan-400/30 blur-3xl rounded-full bottom-10 right-10 "
       />
     </section>
   );

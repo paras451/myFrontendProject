@@ -54,7 +54,7 @@ const Industries = () => {
 
     {/* Small Divs (Vertical Only) */}
     <div className="space-y-3">
-      <div className="p-6 bg-blue-50 rounded-lg" data-aos="fade-up" >Shopify, WooCommerce & Custom Store Development</div>
+      <div className="p-6 bg-blue-50 rounded-lg" data-aos="fade-up" >Advanced E-commerce & Custom Stores</div>
       <div className="p-6 bg-blue-50 rounded-lg" data-aos="fade-down" >Product Search & Recommendation Systems</div>
       <div className="p-6 bg-blue-50 rounded-lg"  data-aos="fade-up" >Secure Payment Gateway Integration</div>
       <div className="p-6 bg-blue-50 rounded-lg" data-aos="fade-down" >Inventory, Order & Subscription Management</div>
@@ -92,14 +92,14 @@ const Industries = () => {
       <div className="flex items-start gap-6">
 
         {/* ICON DIV (pure alag) */}
-        <div className="w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center text-4xl text-blue-700 shadow" data-aos="fade-down">
+        {/* <div className="w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center text-4xl text-blue-700 shadow" data-aos="fade-down">
           ⚙️
-        </div>
+        </div> */}
 
         {/* TEXT DIV (pure alag) */}
-        <div className="bg-gray-50 p-5 rounded-xl shadow flex-1 text-lg font-medium text-gray-800" data-aos="fade-up">
+        {/* <div className="bg-gray-50 p-5 rounded-xl shadow flex-1 text-lg font-medium text-gray-800" data-aos="fade-up">
           CRM, HRMS, and ATS Platforms
-        </div>
+        </div> */}
       </div>
 
       {/* ITEM 2 */}

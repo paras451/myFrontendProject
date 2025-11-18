@@ -10,11 +10,11 @@ function Navbar() {
     <nav className="bg-gray-800 text-white px-6 py-4 flex justify-between items-center shadow-md fixed top-0 left-0 w-full z-50 sm:w-full md:w-full">
       
       {/* Logo */}
-      <div className="flex items-center">
+      <div className="flex items-center rounded-full  ">
         <img
           src={logo}
           alt="Logo"
-          className="w-auto h-14 object-scale-down transition-transform duration-200 hover:scale-110 "
+          className="w-auto h-14 object-scale-down transition-transform duration-200 hover:scale-150 "
         />
       </div>
 
