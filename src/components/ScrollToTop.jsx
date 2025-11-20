@@ -7,7 +7,7 @@ export default function ScrollToTop() {
   useEffect(() => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // insta scroll chahiye toh "auto" kar dena
+      behavior: "auto", // insta scroll chahiye toh "auto" kar dena
     });
   }, [pathname]);
 

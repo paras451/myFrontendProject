@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 // import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { useNavigate } from "react-router-dom";
 
 const Services = () => {
   // useEffect(() => {
@@ -12,8 +13,10 @@ const Services = () => {
   //   });
   // }, []);
 
+  const navigate = useNavigate();
+
   return (
-    <section className="py-20 bg-gray-50 px-6 mt-10">
+    <section className="py-20 bg-blue-50 px-6 mt-10">
       <div className="relative max-w-6xl mx-auto text-center pt-10 justify-center items-center  h-80 overflow-hidden rounded-3xl">
         <div className="animated-bg"></div>
         <style>{`
@@ -134,6 +137,21 @@ opacity: 0.6;
           </div>
         </div>
       </div>
+
+      <div className="flex items-center justify-center mx-auto text-center p-5 mt-20 " data-aos="fade-up">
+
+      {/* Advanced eCommerce Development Card */}
+      <div
+        onClick={() => navigate("/services/advanced-ecommerce")}
+        className="cursor-pointer md:h-60 p-8 border rounded-xl shadow  bg-white hover:shadow-[0_0_25px_#3b82f6] transition-all duration-300 items-center md:w-90  " data-aos="flip-right"
+      >
+        <h2 className="text-xl font-bold mb-2 text-blue-700">Advanced ECommerce Development</h2>
+        <p className="text-gray-600">
+          Custom-built eCommerce platforms with AI search, secure payments, and advanced modules.
+        </p>
+      </div>
+
+    </div>
     </section>
   );
 };

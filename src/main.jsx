@@ -13,6 +13,7 @@ import AboutUs from "./pages/AboutUs.jsx";
 import Industries from "./pages/Industries.jsx";
 import Contact from "./pages/Contact.jsx";
 import Solutions from './pages/Solutions.jsx';
+import AdvancedEcommerce from './pages/AdvancedEcommerce.jsx';
 
 
 
@@ -25,10 +26,13 @@ const router = createBrowserRouter([
     children: [
       { index: "/", element: <Home /> },
       { path: "services", element: <Services /> },
+      {path: "services/advanced-ecommerce", element: <AdvancedEcommerce />},
+
       { path: "about-us", element: <AboutUs /> },
       { path: "solutions", element: <Solutions /> },
       { path: "industries", element: <Industries /> },
       { path: "contact", element: <Contact /> },
+      // {path: "services/advanced-ecommerce", element: <AdvancedEcommerce />},
     ],
   },
 ]);

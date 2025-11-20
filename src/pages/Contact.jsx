@@ -41,7 +41,7 @@ const Contact = () => {
  {/* --- BIG VISIBLE BUBBLES --- */}
  <div className="absolute inset-0 h-full overflow-hidden pointer-events-none ">
 
-      {[...Array(40)].map((_, i) => {
+      {[...Array(50)].map((_, i) => {
     const hue = Math.random() * 360;
 
     return (
@@ -86,7 +86,7 @@ const Contact = () => {
 
 
 
-      <h1 className="text-[48px] font-extrabold text-center text-blue-900 mt-40 mb-10" data-aos="fade-down">Get in Touch</h1>
+      <h1 className="text-[48px] font-extrabold text-center  mt-40 mb-10" data-aos="fade-down">Get in <span className="text-blue-700"> Touch </span></h1>
       <p className="text-gray-600 text-center max-w-2xl mb-20" data-aos="fade-up">
         We'd love to hear from you! Whether you have a question, feedback, or a project idea — we're here for you.
       </p>

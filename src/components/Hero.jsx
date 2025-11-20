@@ -1,13 +1,18 @@
 import React from "react";
 
+
 // import heroImage from "../assets/hero.jpeg";
 import banner from "../assets/videos/banner.mp4";
 
 function Hero() {
+  
+
+
   return (
     <section className=" relative text-white flex flex-col items-center justify-center px-6 md:px-16 py-24 md:py-32 overflow-hidden mt-[5.8rem] shadow-[0_-4px_6px_rgba(0,0,0,0.2),0_4px_6px_rgba(0,0,0,0.15)] shadow-cyan-400">
       {/* Background Image with zoom animation */}
       <video
+      
         autoPlay
         loop
         muted
