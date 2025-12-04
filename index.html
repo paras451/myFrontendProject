@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" className="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
@@ -12,5 +12,13 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+  // Force scroll to top on full page reload
+  window.addEventListener("load", function () {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 10);
+  });
+</script>
   </body>
 </html>

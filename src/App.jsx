@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import AOS from "aos";
@@ -9,6 +9,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import AOSController from "./components/AosController";
 
 function App() {
+  const { pathname } = useLocation();
   useEffect(() => {
     AOS.init({
       duration: 2000,
@@ -21,11 +22,7 @@ function App() {
     <>
       <AOSController />
       <ScrollToTop />
-      {/* <DotLottieReact
-      src="path/to/animation.lottie"
-      loop
-      autoplay
-    /> */}
+
       <div>
         <Navbar />
         <main>

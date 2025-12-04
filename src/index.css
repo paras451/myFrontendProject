@@ -1,12 +1,13 @@
 @import "tailwindcss";
 
 .text-glow {
-  text-shadow: 0 0 12px rgba(59,130,246,0.8), 0 0 25px rgba(59,130,246,0.6);
+  text-shadow: 0 0 12px rgba(59, 130, 246, 0.8),
+    0 0 25px rgba(59, 130, 246, 0.6);
 }
 
 @font-face {
-    font-family: 'CustomFont';
-    src: url('https://fonts.googleapis.com/css2?family=Momo+Trust+Display&display=swap');
+  font-family: "CustomFont";
+  src: url("https://fonts.googleapis.com/css2?family=Momo+Trust+Display&display=swap");
 }
 
 html {
@@ -14,25 +15,47 @@ html {
 }
 
 @keyframes glowPulse {
-0% { text-shadow: 0 0 10px #26f6ef4d; }
-50% { text-shadow: 0 0 25px rgba(96, 184, 236, 0.9); }
-100% { text-shadow: 0 0 10px rgba(59,130,246,0.3); }
+  0% {
+    text-shadow: 0 0 10px #26f6ef4d;
+  }
+  50% {
+    text-shadow: 0 0 25px rgba(96, 184, 236, 0.9);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+  }
 }
-
 
 @keyframes floatY {
-0% { transform: translateY(0); }
-50% { transform: translateY(-12px); }
-100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
-
-@keyframes fadeWave { 
-  0% { opacity: 0.4; }
-  50% { opacity: 1; }
-  100% { opacity: 0.4; }
+@keyframes fadeWave {
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.4;
+  }
 }
 
-.animate-glow { animation: glowPulse 3s infinite ease-in-out; }
-.animate-float { animation: floatY 5s infinite ease-in-out; }
-.animate-wave { animation: fadeWave 6s infinite ease-in-out; }
+.animate-glow {
+  animation: glowPulse 3s infinite ease-in-out;
+}
+.animate-float {
+  animation: floatY 5s infinite ease-in-out;
+}
+.animate-wave {
+  animation: fadeWave 6s infinite ease-in-out;
+}

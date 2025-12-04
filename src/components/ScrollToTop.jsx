@@ -5,11 +5,6 @@ export default function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "auto", // insta scroll chahiye toh "auto" kar dena
-    });
+    window.scrollTo(0, 0);
   }, [pathname]);
-
-  return null;
 }

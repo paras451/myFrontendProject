@@ -4,17 +4,13 @@ import Hero from "../components/Hero";
 // import Services from "../components/Services";
 // import Solutions from "../components/Solutions";
 
-
-
-
 function Home() {
   return (
     <>
-
       <div>
-      <Hero />
-    </div>
-    {/* <div> */}
+        <Hero />
+      </div>
+      {/* <div> */}
       {/* <Industries />
     </div>
     <div>
@@ -24,8 +20,6 @@ function Home() {
     <div>
       <Solutions/>
     </div> */}
-
-    
     </>
   );
 }

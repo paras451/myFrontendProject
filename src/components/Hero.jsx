@@ -1,26 +1,44 @@
 import React from "react";
-
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 // import heroImage from "../assets/hero.jpeg";
 import banner from "../assets/videos/banner.mp4";
 
 function Hero() {
-  
+  const [heroData, setHeroData] = useState(null);
 
+  useEffect(() => {
+    axios
+      .get("http://localhost:8082/home")
+      .then((res) => {
+        console.log("API RAW DATA:", res.data);
+        setHeroData(res.data[0]);
+      })
+      .catch((err) => {
+        console.log("API Error:", err);
+      });
+  }, []);
+
+  // if (!heroData) {
+  //   return (
+  //     <section className="text-white mt-[5.8rem] px-6 py-24 text-center">
+  //       <h1 className="text-3xl">Loading...</h1>
+  //     </section>
+  //   );
+  // }
 
   return (
     <section className=" relative text-white flex flex-col items-center justify-center px-6 md:px-16 py-24 md:py-32 overflow-hidden mt-[5.8rem] shadow-[0_-4px_6px_rgba(0,0,0,0.2),0_4px_6px_rgba(0,0,0,0.15)] shadow-cyan-400">
       {/* Background Image with zoom animation */}
       <video
-      
         autoPlay
         loop
         muted
-        
         src={banner}
         className="absolute inset-0 w-full h-full object-cover  opacity-90"
       ></video>
-
 
       {/* Content */}
       <div className="relative z-10 text-center max-w-3xl" data-aos="fade-up">
@@ -32,9 +50,10 @@ function Hero() {
           data-aos="flip-down"
         >
           <span className="inline-block animate-float">
-            Build <span className="text-blue-200">Powerful</span> Digital
+            {heroData?.title}
+            {/* Build <span className="text-blue-200">Powerful</span> Digital
             Solutions
-            <br /> for Web & Mobile
+            <br /> for Web & Mobile */}
           </span>
         </h1>
 
@@ -42,8 +61,9 @@ function Hero() {
           className="text-lg md:text-xl text-gray-300 mb-8 animate-float"
           data-aos="fade-in"
         >
-          Transform your business ideas into world-class digital experiences
-          with our expert team of developers, designers, and innovators.
+          {heroData?.description}
+          {/* Transform your business ideas into world-class digital experiences
+          with our expert team of developers, designers, and innovators. */}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-float ">
@@ -52,7 +72,7 @@ function Hero() {
           </button>
 
           <button className="border border-gray-300 hover:border-blue-400 px-8 py-3 rounded-lg font-semibold hover:text-blue-300 transition-all">
-            View Services
+            <Link to="/services">View Services</Link>
           </button>
         </div>
       </div>

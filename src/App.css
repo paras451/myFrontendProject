@@ -40,3 +40,10 @@
 .read-the-docs {
   color: #888;
 }
+
+.spin {
+  display: inline-block; /* transform karega to inline element bhi */
+  /* font-size: 48px; */
+  transform-origin: center center; /* center ke around ghoome */
+  animation: spin 1.2s linear infinite;
+}

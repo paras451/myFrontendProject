@@ -7,8 +7,7 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-gray-800 text-white px-6 py-4 flex justify-between items-center shadow-md fixed top-0 left-0 w-full z-50 sm:w-full md:w-full">
-      
+    <nav className="bg-gray-800 text-white px-6 py-4 flex justify-between items-center shadow-md fixed top-0 left-0 w-full z-50 sm:w-full md:w-full ">
       {/* Logo */}
       <div className="flex items-center rounded-full  ">
         <img
@@ -20,19 +19,45 @@ function Navbar() {
 
       {/* Desktop Menu */}
       <ul className="hidden md:flex gap-8 font-medium">
-        <li><Link to="/" className="hover:text-blue-500">Home</Link></li>
-        <li><Link to="/services" className="hover:text-blue-500">Services</Link></li>
-        <li><Link to="/about-us" className="hover:text-blue-500">About Us</Link></li>
-        <li><Link to="/solutions" className="hover:text-blue-500">Solutions</Link></li>
-        <li><Link to="/industries" className="hover:text-blue-500">Industries</Link></li>
-        <li><Link to="/contact" className="hover:text-blue-500">Contact</Link></li>
+        <li>
+          <Link to="/" className="hover:text-blue-500">
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link to="/services" className="hover:text-blue-500">
+            Services
+          </Link>
+        </li>
+        <li>
+          <Link to="/about-us" className="hover:text-blue-500">
+            About Us
+          </Link>
+        </li>
+        <li>
+          <Link to="/solutions" className="hover:text-blue-500">
+            Solutions
+          </Link>
+        </li>
+        <li>
+          <Link to="/industries" className="hover:text-blue-500">
+            Industries
+          </Link>
+        </li>
+        <li>
+          <Link to="/contact" className="hover:text-blue-500">
+            Contact
+          </Link>
+        </li>
       </ul>
 
       {/* Right side buttons */}
       <div className="flex items-center gap-3">
-        <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-all">
-          Login
-        </button>
+        <Link to="/admin-login">
+          <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-all w-full">
+            Login Admin Panel
+          </button>
+        </Link>
 
         {/* Mobile Toggle */}
         <button
@@ -46,17 +71,52 @@ function Navbar() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="absolute top-[72px] left-0 w-full bg-gray-900 flex flex-col items-center gap-5 py-6 md:hidden shadow-lg z-40">
-          <Link to="/" onClick={() => setMenuOpen(false)} className="hover:text-blue-500">Home</Link>
-          <Link to="/services" onClick={() => setMenuOpen(false)} className="hover:text-blue-500">Services</Link>
-          <Link to="/about-us" onClick={() => setMenuOpen(false)} className="hover:text-blue-500">About Us</Link>
-          <Link to="/solutions" onClick={() => setMenuOpen(false)} className="hover:text-blue-500">Solutions</Link>
-          <Link to="/industries" onClick={() => setMenuOpen(false)} className="hover:text-blue-500">Industries</Link>
-          <Link to="/contact" onClick={() => setMenuOpen(false)} className="hover:text-blue-500">Contact</Link>
+          <Link
+            to="/"
+            onClick={() => setMenuOpen(false)}
+            className="hover:text-blue-500"
+          >
+            Home
+          </Link>
+          <Link
+            to="/services"
+            onClick={() => setMenuOpen(false)}
+            className="hover:text-blue-500"
+          >
+            Services
+          </Link>
+          <Link
+            to="/about-us"
+            onClick={() => setMenuOpen(false)}
+            className="hover:text-blue-500"
+          >
+            About Us
+          </Link>
+          <Link
+            to="/solutions"
+            onClick={() => setMenuOpen(false)}
+            className="hover:text-blue-500"
+          >
+            Solutions
+          </Link>
+          <Link
+            to="/industries"
+            onClick={() => setMenuOpen(false)}
+            className="hover:text-blue-500"
+          >
+            Industries
+          </Link>
+          <Link
+            to="/contact"
+            onClick={() => setMenuOpen(false)}
+            className="hover:text-blue-500"
+          >
+            Contact
+          </Link>
         </div>
       )}
     </nav>
   );
 }
-
 
 export default Navbar;
