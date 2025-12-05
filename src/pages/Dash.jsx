@@ -14,6 +14,8 @@ import {
   CartesianGrid,
 } from "recharts";
 
+import api from "../axiosConfig";
+
 import { ResponsiveContainer } from "recharts";
 
 import { Link } from "react-router-dom";
@@ -60,7 +62,8 @@ export default function Dash() {
 
   // ---- Backend se data ----
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/contact`)
+    api
+    .get("/contact")
       .then((res) => res.json())
       .then((data) => {
         console.log("Messages API:", data);

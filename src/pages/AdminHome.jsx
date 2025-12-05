@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import api from "../axiosConfig";
 
 const AdminHome = () => {
   const [data, setData] = useState([]);
@@ -23,8 +24,8 @@ const AdminHome = () => {
   };
 
   useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/home`)
+    api
+      .get("/home")
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
