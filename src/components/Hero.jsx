@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import api from "./axiosConfig";
+import api from "../axiosConfig";
 
 // import heroImage from "../assets/hero.jpeg";
 import banner from "../assets/videos/banner.mp4";
