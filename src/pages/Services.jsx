@@ -3,13 +3,14 @@ import "aos/dist/aos.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import AOS from "aos";
+import api from "../axiosConfig";
 
 const Services = () => {
   const [mainData, setMainData] = useState(null);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/service")
+    api
+      .get("/service")
       .then((res) => {
         console.log("API RAW DATA:", res.data);
         setMainData(res.data[0]);
@@ -23,8 +24,8 @@ const Services = () => {
   const [itemData, setItemData] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/services")
+    api
+      .get("/services")
       .then((res) => {
         console.log("API RAW DATA:", res.data);
         const sorted = res.data.sort((a, b) => a.position - b.position);

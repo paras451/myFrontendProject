@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import api from "../axiosConfig";
 
 function AddUser() {
   const [form, setForm] = useState({
@@ -20,7 +21,7 @@ function AddUser() {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:8082/api/adduser", form);
+      const res = await api.post("/api/adduser", form);
       alert("User created successfully!");
       console.log(res.data);
     } catch (err) {

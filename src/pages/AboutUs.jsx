@@ -4,13 +4,14 @@ import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 import { Target, Eye, User, UserRound } from "lucide-react";
 import AOS from "aos";
+import api from "../axiosConfig";
 
 export default function AboutUs() {
   const [mainData, setMainData] = useState(null);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/AboutT1")
+    api
+      .get("/AboutT1")
       .then((res) => {
         console.log("API RAW DATA:", res.data);
         setMainData(res.data[0]);
@@ -23,8 +24,8 @@ export default function AboutUs() {
   const [mainsData, setMainsData] = useState(null);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/AboutT2")
+    api
+      .get("/AboutT2")
       .then((res) => {
         console.log("API RAW DATA:", res.data);
         setMainsData(res.data[0]);
@@ -37,8 +38,8 @@ export default function AboutUs() {
   const [mainssData, setMainssData] = useState(null);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/AboutT3")
+    api
+      .get("/AboutT3")
       .then((res) => {
         console.log("API RAW DATA:", res.data);
         setMainssData(res.data[0]);

@@ -2,6 +2,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+import api from "../axiosConfig";
+
 function AdminIndustries() {
   const [data, setData] = useState([]);
 
@@ -16,8 +18,8 @@ function AdminIndustries() {
   };
 
   const updateData = () => {
-    axios
-      .put(`http://localhost:8082/IndustriesT1/${editing.id}`, editing)
+    api
+      .put(`/IndustriesT1/${editing.id}`, editing)
       .then((res) => {
         setMains(
           mains.map((main) => (main.id === editing.id ? res.data : main))
@@ -29,8 +31,8 @@ function AdminIndustries() {
   };
 
   const deleteItem = (id) => {
-    axios
-      .delete(`http://localhost:8082/IndustriesT1/${id}`)
+    api
+      .delete(`/IndustriesT1/${id}`)
       .then(() => {
         setRefresh((prev) => !prev);
       })
@@ -38,8 +40,8 @@ function AdminIndustries() {
   };
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/IndustriesT1")
+    api
+      .get("/IndustriesT1")
       .then((res) => {
         console.log("MAINS API RESPONSE:", res.data);
         setMains(res.data);
@@ -58,8 +60,8 @@ function AdminIndustries() {
   };
 
   const updatesData = () => {
-    axios
-      .put(`http://localhost:8082/IndustriesT2/${editingg.id}`, editingg)
+    api
+      .put(`/IndustriesT2/${editingg.id}`, editingg)
       .then((res) => {
         setMainss(
           mainss.map((mai) => (mai.id === editingg.id ? res.data : mai))
@@ -71,8 +73,8 @@ function AdminIndustries() {
   };
 
   const deletesItem = (id) => {
-    axios
-      .delete(`http://localhost:8082/IndustriesT2/${id}`)
+    api
+      .delete(`/IndustriesT2/${id}`)
       .then(() => {
         setRefreshh((prev) => !prev);
       })
@@ -80,8 +82,8 @@ function AdminIndustries() {
   };
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/IndustriesT2")
+    api
+      .get("/IndustriesT2")
       .then((res) => {
         console.log("MAINS API RESPONSE:", res.data);
         setMainss(res.data);
@@ -100,8 +102,8 @@ function AdminIndustries() {
   };
 
   const updatessData = () => {
-    axios
-      .put(`http://localhost:8082/IndustriesT3/${editinggg.id}`, editinggg)
+    api
+      .put(`/IndustriesT3/${editinggg.id}`, editinggg)
       .then((res) => {
         setMainsss(
           mainsss.map((ma) => (ma.id === editinggg.id ? res.data : ma))
@@ -113,8 +115,8 @@ function AdminIndustries() {
   };
 
   const deletesItems = (id) => {
-    axios
-      .delete(`http://localhost:8082/IndustriesT3/${id}`)
+    api
+      .delete(`/IndustriesT3/${id}`)
       .then(() => {
         setRefreshhh((prev) => !prev);
       })
@@ -122,8 +124,8 @@ function AdminIndustries() {
   };
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/IndustriesT3")
+    api
+      .get("/IndustriesT3")
       .then((res) => {
         console.log("MAINS API RESPONSE:", res.data);
         setMainsss(res.data);

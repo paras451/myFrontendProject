@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import api from "../axiosConfig";
 
 function AdminSolutions() {
   const [data, setData] = useState([]);
@@ -16,8 +17,8 @@ function AdminSolutions() {
   };
 
   const updateData = () => {
-    axios
-      .put(`http://localhost:8082/SolutionsTable1/${editing.id}`, editing)
+    api
+      .put(`/SolutionsTable1/${editing.id}`, editing)
       .then((res) => {
         setMains(
           mains.map((main) => (main.id === editing.id ? res.data : main))
@@ -29,8 +30,8 @@ function AdminSolutions() {
   };
 
   const deleteItem = (id) => {
-    axios
-      .delete(`http://localhost:8082/SolutionsTable1/${id}`)
+    api
+      .delete(`/SolutionsTable1/${id}`)
       .then(() => {
         setRefresh((prev) => !prev);
       })
@@ -38,8 +39,8 @@ function AdminSolutions() {
   };
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/SolutionsTable1")
+    api
+      .get("/SolutionsTable1")
       .then((res) => {
         console.log("MAINS API RESPONSE:", res.data);
         setMains(res.data);
@@ -58,8 +59,8 @@ function AdminSolutions() {
   };
 
   const updatesData = () => {
-    axios
-      .put(`http://localhost:8082/SolutionsTable2/${editingg.id}`, editingg)
+    api
+      .put(`/SolutionsTable2/${editingg.id}`, editingg)
       .then((res) => {
         setMainss(
           mainss.map((mai) => (mai.id === editingg.id ? res.data : mai))
@@ -71,8 +72,8 @@ function AdminSolutions() {
   };
 
   const deletesItem = (id) => {
-    axios
-      .delete(`http://localhost:8082/SolutionsTable2/${id}`)
+    api
+      .delete(`/SolutionsTable2/${id}`)
       .then(() => {
         setRefreshh((prev) => !prev);
       })
@@ -80,8 +81,8 @@ function AdminSolutions() {
   };
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/SolutionsTable2")
+    api
+      .get("/SolutionsTable2")
       .then((res) => {
         console.log("MAINS API RESPONSE:", res.data);
         setMainss(res.data);

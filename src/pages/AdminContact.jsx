@@ -2,6 +2,7 @@ import React from "react";
 
 import { useState, useEffect } from "react";
 import axios from "axios";
+import api from "../axiosConfig";
 
 function AdminContact() {
   const [data, setData] = useState([]);
@@ -17,8 +18,8 @@ function AdminContact() {
   };
 
   const updateData = () => {
-    axios
-      .put(`http://localhost:8082/ContactT1/${editing.id}`, editing)
+    api
+      .put(`/ContactT1/${editing.id}`, editing)
       .then((res) => {
         setMains(
           mains.map((main) => (main.id === editing.id ? res.data : main))
@@ -30,8 +31,8 @@ function AdminContact() {
   };
 
   const deleteItem = (id) => {
-    axios
-      .delete(`http://localhost:8082/ContactT1/${id}`)
+    api
+      .delete(`/ContactT1/${id}`)
       .then(() => {
         setRefresh((prev) => !prev);
       })
@@ -39,8 +40,8 @@ function AdminContact() {
   };
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/ContactT1")
+    api
+      .get("/ContactT1")
       .then((res) => {
         console.log("MAINS API RESPONSE:", res.data);
         setMains(res.data);

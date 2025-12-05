@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import api from "../axiosConfig";
 
 function AdminAboutUs() {
   const [data, setData] = useState([]);
@@ -16,8 +17,8 @@ function AdminAboutUs() {
   };
 
   const updateData = () => {
-    axios
-      .put(`http://localhost:8082/AboutT1/${editing.id}`, editing)
+    api
+      .put(`/AboutT1/${editing.id}`, editing)
       .then((res) => {
         setMains(
           mains.map((main) => (main.id === editing.id ? res.data : main))
@@ -29,8 +30,8 @@ function AdminAboutUs() {
   };
 
   const deleteItem = (id) => {
-    axios
-      .delete(`http://localhost:8082/AboutT1/${id}`)
+    api
+      .delete(`/AboutT1/${id}`)
       .then(() => {
         setRefresh((prev) => !prev);
       })
@@ -38,8 +39,8 @@ function AdminAboutUs() {
   };
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/AboutT1")
+    api
+      .get("/AboutT1")
       .then((res) => {
         console.log("MAINS API RESPONSE:", res.data);
         setMains(res.data);
@@ -58,8 +59,8 @@ function AdminAboutUs() {
   };
 
   const updatesData = () => {
-    axios
-      .put(`http://localhost:8082/AboutT2/${editingg.id}`, editingg)
+    api
+      .put(`/AboutT2/${editingg.id}`, editingg)
       .then((res) => {
         setMainss(
           mainss.map((mai) => (mai.id === editingg.id ? res.data : mai))
@@ -71,8 +72,8 @@ function AdminAboutUs() {
   };
 
   const deletesItem = (id) => {
-    axios
-      .delete(`http://localhost:8082/AboutT2/${id}`)
+    api
+      .delete(`/AboutT2/${id}`)
       .then(() => {
         setRefreshh((prev) => !prev);
       })
@@ -80,8 +81,8 @@ function AdminAboutUs() {
   };
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/AboutT2")
+    api
+      .get("/AboutT2")
       .then((res) => {
         console.log("MAINS API RESPONSE:", res.data);
         setMainss(res.data);
@@ -100,8 +101,8 @@ function AdminAboutUs() {
   };
 
   const updatessData = () => {
-    axios
-      .put(`http://localhost:8082/AboutT3/${editinggg.id}`, editinggg)
+    api
+      .put(`/AboutT3/${editinggg.id}`, editinggg)
       .then((res) => {
         setMainsss(
           mainsss.map((ma) => (ma.id === editinggg.id ? res.data : ma))
@@ -113,8 +114,8 @@ function AdminAboutUs() {
   };
 
   const deletesItems = (id) => {
-    axios
-      .delete(`http://localhost:8082/AboutT3/${id}`)
+    api
+      .delete(`/AboutT3/${id}`)
       .then(() => {
         setRefreshhh((prev) => !prev);
       })
@@ -122,8 +123,8 @@ function AdminAboutUs() {
   };
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/AboutT3")
+    api
+      .get("/AboutT3")
       .then((res) => {
         console.log("MAINS API RESPONSE:", res.data);
         setMainsss(res.data);

@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "aos/dist/aos.css";
 import AOS from "aos";
+import api from "../axiosConfig";
 
 const Industries = () => {
   // UI Render for Table 1
   const [mainData, setMainData] = useState(null);
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/IndustriesT1")
+    api
+      .get("/IndustriesT1")
       .then((res) => {
         console.log("API RAW DATA:", res.data);
         setMainData(res.data[0]);
@@ -21,8 +22,8 @@ const Industries = () => {
   // UI Render for Table 2
   const [mainsData, setMainsData] = useState([]);
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/IndustriesT2")
+    api
+      .get("/IndustriesT2")
       .then((res) => {
         console.log("API RAW DATA:", res.data);
 
@@ -36,8 +37,8 @@ const Industries = () => {
   // UI Render for Table 3
   const [mainssData, setMainssData] = useState([]);
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/IndustriesT3")
+    api
+      .get("/IndustriesT3")
       .then((res) => {
         console.log("API RAW DATA:", res.data);
 

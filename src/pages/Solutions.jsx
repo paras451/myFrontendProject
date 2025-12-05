@@ -2,12 +2,13 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import AOS from "aos";
+import api from "../axiosConfig";
 
 const Solutions = () => {
   const [mainData, setMainData] = useState(null);
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/SolutionsTable1")
+    api
+      .get("/SolutionsTable1")
       .then((res) => {
         console.log("API RAW DATA:", res.data);
         setMainData(res.data[0]);
@@ -20,8 +21,8 @@ const Solutions = () => {
   const [mainsData, setMainsData] = useState(null);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/SolutionsTable2")
+    api
+      .get("/SolutionsTable2")
       .then((res) => {
         console.log("API RAW DATA:", res.data);
         setMainsData(res.data);

@@ -3,13 +3,14 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import AOS from "aos";
+import api from "../axiosConfig";
 
 const Contact = () => {
   // UI Render for Table 1
   const [mainData, setMainData] = useState(null);
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/ContactT1")
+    api
+      .get("/ContactT1")
       .then((res) => {
         console.log("API RAW DATA:", res.data);
         setMainData(res.data[0]);
@@ -22,8 +23,8 @@ const Contact = () => {
   // UI Render for Table 2
   const [mainsData, setMainsData] = useState(null);
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/ContactT2")
+    api
+      .get("/ContactT2")
       .then((res) => {
         console.log("API RAW DATA:", res.data);
         setMainsData(res.data[0]);
@@ -36,8 +37,8 @@ const Contact = () => {
   // UI Render for Table 3
   const [mainssData, setMainssData] = useState(null);
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/ContactT3")
+    api
+      .get("/ContactT3")
       .then((res) => {
         console.log("API RAW DATA:", res.data);
         setMainssData(res.data[0]);
@@ -94,7 +95,7 @@ const Contact = () => {
     console.log("form submitting....");
 
     try {
-      const res = await axios.post("http://localhost:8082/contact", {
+      const res = await api.post("/contact", {
         name,
         email,
         message,

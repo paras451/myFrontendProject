@@ -2,13 +2,14 @@ import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 // import image from "../assets/ecommerce.png";
+import api from "../axiosConfig";
 
 const AdvancedEcommerce = () => {
   const [mainData, setMainData] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/Table1")
+    api
+      .get("/Table1")
       .then((res) => {
         console.log("API RAW DATA:", res.data);
         setMainData(res.data[0]);
@@ -21,8 +22,8 @@ const AdvancedEcommerce = () => {
   const [mainss, setMainss] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/Table2")
+    api
+      .get("/Table2")
       .then((res) => {
         console.log("API RAW DATA:", res.data);
         const sorted = res.data.sort((a, b) => a.position - b.position);
@@ -36,8 +37,8 @@ const AdvancedEcommerce = () => {
   const [mainsss, setMainsss] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/Table3")
+    api
+      .get("/Table3")
       .then((res) => {
         console.log("API RAW DATA:", res.data);
         const sorted = res.data.sort((a, b) => a.position - b.position);

@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import api from "../axiosConfig";
 
 function Users() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8082/contact")
+    api
+    .grt("/contact")
       .then((res) => res.json())
       .then((data) => {
         console.log("Api Data:", data);
@@ -19,8 +21,8 @@ function Users() {
   const [data, setData] = useState([]);
 
   const deletesItem = (id) => {
-    axios
-      .delete(`http://localhost:8082/contact/${id}`)
+    api
+      .delete(`/contact/${id}`)
       .then(() => {
         setUsers((prev) => prev.filter((user) => user.id !== id));
       })

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import api from "../axiosConfig";
 
 function AdminAdvanceEcommerce() {
   const [data, setData] = useState([]);
@@ -15,8 +16,8 @@ function AdminAdvanceEcommerce() {
   };
 
   const updateData = () => {
-    axios
-      .put(`http://localhost:8082/Table1/${editing.id}`, editing)
+    api
+      .put(`/Table1/${editing.id}`, editing)
       .then((res) => {
         setMains(
           mains.map((main) => (main.id === editing.id ? res.data : main))
@@ -28,8 +29,8 @@ function AdminAdvanceEcommerce() {
   };
 
   const deleteItem = (id) => {
-    axios
-      .delete(`http://localhost:8082/Table1/${id}`)
+    api
+      .delete(`/Table1/${id}`)
       .then(() => {
         setRefresh((prev) => !prev);
       })
@@ -37,8 +38,8 @@ function AdminAdvanceEcommerce() {
   };
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/Table1")
+    api
+      .get("/Table1")
       .then((res) => {
         console.log("MAINS API RESPONSE:", res.data);
         setMains(res.data);
@@ -59,8 +60,8 @@ function AdminAdvanceEcommerce() {
   };
 
   const updatesData = () => {
-    axios
-      .put(`http://localhost:8082/Table2/${editingg.id}`, editingg)
+    api
+      .put(`/Table2/${editingg.id}`, editingg)
       .then((res) => {
         setMainss(
           mainss.map((mai) => (mai.id === editingg.id ? res.data : mai))
@@ -72,8 +73,8 @@ function AdminAdvanceEcommerce() {
   };
 
   const deletesItem = (id) => {
-    axios
-      .delete(`http://localhost:8082/Table2/${id}`)
+    api
+      .delete(`/Table2/${id}`)
       .then(() => {
         setRefreshh((prev) => !prev);
       })
@@ -81,8 +82,8 @@ function AdminAdvanceEcommerce() {
   };
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/Table2")
+    api
+      .get("/Table2")
       .then((res) => {
         console.log("MAINS API RESPONSE:", res.data);
         setMainss(res.data);
@@ -103,8 +104,8 @@ function AdminAdvanceEcommerce() {
   };
 
   const updatessData = () => {
-    axios
-      .put(`http://localhost:8082/Table3/${editinggg.id}`, editinggg)
+    api
+      .put(`/Table3/${editinggg.id}`, editinggg)
       .then((res) => {
         setMainsss(
           mainsss.map((ma) => (ma.id === editinggg.id ? res.data : ma))
@@ -116,8 +117,8 @@ function AdminAdvanceEcommerce() {
   };
 
   const deletesItems = (id) => {
-    axios
-      .delete(`http://localhost:8082/Table3/${id}`)
+    api
+      .delete(`/Table3/${id}`)
       .then(() => {
         setRefreshh((prev) => !prev);
       })
@@ -125,8 +126,8 @@ function AdminAdvanceEcommerce() {
   };
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/Table3")
+    api
+      .get("/Table3")
       .then((res) => {
         console.log("MAINS API RESPONSE:", res.data);
         setMainsss(res.data);

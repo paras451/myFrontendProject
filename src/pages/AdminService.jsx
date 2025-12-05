@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import api from "../axiosConfig";
 
 function AdminService() {
   const [data, setData] = useState([]);
@@ -16,8 +17,8 @@ function AdminService() {
   };
 
   const updateData = () => {
-    axios
-      .put(`http://localhost:8082/service/${editing.id}`, editing)
+    api
+      .put(`/service/${editing.id}`, editing)
       .then((res) => {
         setData(data.map((main) => (main.id === editing.id ? res.data : main)));
         setEditing(null); // modal close
@@ -27,8 +28,8 @@ function AdminService() {
   };
 
   const deleteItem = (id) => {
-    axios
-      .delete(`http://localhost:8082/service/${id}`)
+    api
+      .delete(`/service/${id}`)
       .then(() => {
         setRefresh((prev) => !prev);
       })
@@ -44,8 +45,8 @@ function AdminService() {
   };
 
   const updatesData = () => {
-    axios
-      .put(`http://localhost:8082/services/${editingg.id}`, editingg)
+    api
+      .put(`/services/${editingg.id}`, editingg)
       .then((res) => {
         setItems(
           data.map((item) => (item.id === editingg.id ? res.data : item))
@@ -57,8 +58,8 @@ function AdminService() {
   };
 
   const deletesItem = (id) => {
-    axios
-      .delete(`http://localhost:8082/services/${id}`)
+    api
+      .delete(`/services/${id}`)
       .then(() => {
         setRefreshh((prev) => !prev);
       })
@@ -66,8 +67,8 @@ function AdminService() {
   };
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/services")
+    api
+      .get("/services")
       .then((res) => {
         console.log("ITEMS API RESPONSE:", res.data);
         const sorted = res.data.sort((a, b) => a.position - b.position);
@@ -77,8 +78,8 @@ function AdminService() {
   }, [refreshh]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/service")
+    api
+      .get("/service")
       .then((res) => {
         console.log("MAINS API RESPONSE:", res.data);
         setMains(res.data);
