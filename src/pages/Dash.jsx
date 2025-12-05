@@ -60,7 +60,7 @@ export default function Dash() {
 
   // ---- Backend se data ----
   useEffect(() => {
-    fetch("http://localhost:8082/contact")
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/contact`)
       .then((res) => res.json())
       .then((data) => {
         console.log("Messages API:", data);
