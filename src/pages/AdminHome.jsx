@@ -24,7 +24,7 @@ const AdminHome = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8082/home")
+      .get(`${process.env.REACT_APP_BACKEND_URL}/home`)
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
