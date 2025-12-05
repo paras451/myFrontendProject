@@ -14,8 +14,8 @@ const AdminHome = () => {
   };
 
   const updateData = () => {
-    axios
-      .put(`http://localhost:8082/home/${editing.id}`, editing)
+    api
+      .put(`/home/${editing.id}`, editing)
       .then((res) => {
         setData(data.map((item) => (item.id === editing.id ? res.data : item)));
         setEditing(null); // modal close
@@ -31,8 +31,8 @@ const AdminHome = () => {
   }, []);
 
   const deleteItem = (id) => {
-    axios
-      .delete(`http://localhost:8082/home/${id}`)
+    api
+      .delete(`/home/${id}`)
       .then(() => {
         setRefresh((prev) => !prev);
       })
