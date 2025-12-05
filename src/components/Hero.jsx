@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import api from "./axiosConfig";
 
 // import heroImage from "../assets/hero.jpeg";
 import banner from "../assets/videos/banner.mp4";
@@ -10,8 +11,8 @@ function Hero() {
   const [heroData, setHeroData] = useState(null);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/home")
+    api
+      .get("/home")
       .then((res) => {
         console.log("API RAW DATA:", res.data);
         setHeroData(res.data[0]);
