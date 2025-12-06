@@ -64,10 +64,9 @@ export default function Dash() {
   useEffect(() => {
     api
     .get("/contact")
-      .then((res) => res.json())
-      .then((data) => {
+      .then((res) =>  {
         console.log("Messages API:", data);
-        setUsers(data);
+        setUsers(res.data);
         // 🔥 Convert messages -> count per date
         const grouped = {};
 
