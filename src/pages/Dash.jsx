@@ -67,23 +67,24 @@ export default function Dash() {
         // 🔥 Convert messages -> count per date
         const grouped = {};
 
-        data.forEach((item) => {
-          const dateObj = new Date(item.createdAt);
-          const date = dateObj.toISOString().split("T")[0]; // ALWAYS yyyy-mm-dd
+      data.forEach((item) => {
+        // Direct split se DATE 100% accurate
+        const date = item.createdAt.split(" ")[0];
 
-          if (!grouped[date]) grouped[date] = 0;
-          grouped[date]++;
-        });
+        if (!grouped[date]) grouped[date] = 0;
+        grouped[date]++;
+      });
 
-        const formatted = Object.keys(grouped).map((date) => ({
-          date,
-          count: grouped[date],
-        }));
+      const formatted = Object.keys(grouped).map((date) => ({
+        date,
+        count: grouped[date],
+      }));
 
-        setChartData(formatted);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+      console.log("FINAL PIE DATA:", formatted);
+      setChartData(formatted);
+    })
+    .catch((err) => console.log(err));
+}, []);
 
   const COLORS = ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0", "#8B5CF6"];
 
