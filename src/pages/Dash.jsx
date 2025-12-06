@@ -134,7 +134,7 @@ export default function Dash() {
               <Pie
                 data={chartData}
                 dataKey="date"
-                nameKey="date"
+                nameKey="count"
                 cx="50%"
                 cy="50%"
                 outerRadius={120}
