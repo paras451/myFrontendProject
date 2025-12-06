@@ -14,42 +14,38 @@ import {
   CartesianGrid,
 } from "recharts";
 
-import api from "../axiosConfig";
+import api from "../axiosConfig"; // Assuming this is correct
 
 import { ResponsiveContainer } from "recharts";
 
 import { Link } from "react-router-dom";
 
 export default function Dash() {
-  const [data, setData] = useState([]);
   const [users, setUsers] = useState([]);
   const [chartData, setChartData] = useState([]);
   const [loopedMessages, setLoopedMessages] = useState([]);
 
-  const CustomTooltip = ({ active, payload }) => {
-    if (active && payload && payload.length) {
-      const data = payload[0].payload; // full row from API
+  // 🛑 Original CustomTooltip is incompatible with chartData (counts)
+  // Let's keep it unused for now, or use it for a more detailed view if needed.
 
+  // ✅ New Tooltip for Bar and Line Charts (shows date and count)
+  const ChartTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
       return (
         <div
           style={{
-            background: "#fff",
-            padding: "10px",
-            borderRadius: "10px",
-            boxShadow: "0 0 10px rgba(0,0,0,0.2)",
+            background: "#333",
+            color: "#fff",
+            padding: "8px",
+            borderRadius: "4px",
+            boxShadow: "0 0 5px rgba(0,0,0,0.5)",
           }}
         >
-          <p>
-            <strong>Date:</strong> {data.createdAt}
+          <p className="text-sm">
+            <strong>Date:</strong> {label}
           </p>
-          <p>
-            <strong>Message:</strong> {data.message}
-          </p>
-          <p>
-            <strong>Name:</strong> {data.name}
-          </p>
-          <p>
-            <strong>Email:</strong> {data.email}
+          <p className="text-lg font-bold">
+            {`Messages: ${payload[0].value}`}
           </p>
         </div>
       );
@@ -62,11 +58,12 @@ export default function Dash() {
     api
       .get("/contact")
       .then((res) => {
-        console.log("ONE SAMPLE ITEM ===>", res.data[0]);
         console.log("messages", res.data);
         setUsers(res.data);
-        setLoopedMessages([...res.data, ...res.data]);
+        // Live effect ke liye data ko loop kiya gaya hai
+        setLoopedMessages([...res.data, ...res.data]); 
         const data = res.data;
+        
         // 🔥 Convert messages -> count per date
         const grouped = {};
 
@@ -78,12 +75,13 @@ export default function Dash() {
           grouped[date]++;
         });
 
+        // Chart ke liye required format: [{ date: "YYYY-MM-DD", count: 5 }]
         const formatted = Object.keys(grouped).map((date) => ({
           date,
           count: grouped[date],
         }));
 
-        console.log("FINAL PIE DATA:", formatted);
+        console.log("FINAL CHART DATA:", formatted);
         setChartData(formatted);
       })
       .catch((err) => console.log(err));
@@ -103,8 +101,8 @@ export default function Dash() {
       path: "/admindashboard/advanced-ecommerce",
     },
   ];
-  //for messages show in loops
-
+  
+  //for messages show in loops (Auto-scroll effect)
   useEffect(() => {
     const box = document.getElementById("scrollBox");
     if (!box) return;
@@ -124,9 +122,10 @@ export default function Dash() {
 
   return (
     <div className="bg-white p-6 rounded-xl shadow lg:grid lg:grid-cols-2 lg:gap-2 md:grid md:grid-cols-1 md:gap-2 ">
+      
+      {/* 1. Pie Chart: Messages Analytics */}
       <div className="bg-white p-6 rounded-xl shadow mt-10">
-        <h2 className="text-lg font-semibold mb-4">Messages Analytics</h2>
-
+        <h2 className="text-lg font-semibold mb-4">Messages Analytics (Per Day)</h2>
         {chartData.length === 0 ? (
           <p>Loading pie chart...</p>
         ) : (
@@ -145,24 +144,23 @@ export default function Dash() {
                   <Cell key={index} fill={COLORS[index % COLORS.length]} />
                 ))}
               </Pie>
-              <Tooltip />
+              <Tooltip content={<ChartTooltip />} /> 
               <Legend />
             </PieChart>
           </ResponsiveContainer>
         )}
       </div>
+      
+      {/* 2. All Messages (Live Scroll) */}
       <div>
-        <h2 className="text-lg font-semibold mb-4">All Messages</h2>
+        <h2 className="text-lg font-semibold mb-4">All Messages (Live Feed)</h2>
         <div
           id="scrollBox"
-          className="bg-white p-6 rounded-xl shadow max-h-100 overflow-y-auto "
+          className="bg-white p-6 rounded-xl shadow max-h-96 overflow-y-auto" // Increased max-h for better view
         >
-          {/* <h2 className="text-lg font-semibold mb-4">All Messages</h2> */}
-
           <div className="space-y-4">
-            {loopedMessages.map((msg, i) => {
-              const safeDate = msg.createAt.replace(" ", "T");
-
+            {/* 🛑 FIX: JSX must be returned using ( ) or explicit return {} */}
+            {loopedMessages.map((msg, i) => ( 
               <div
                 key={i}
                 className="border p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition"
@@ -177,17 +175,18 @@ export default function Dash() {
                   <strong>Message:</strong> {msg.message}
                 </p>
                 <p className="text-xs text-gray-500">
-                  {new Date(msg.createdAt).toLocaleString()}
+                  {/* Using createdAt as per API response */}
+                  {new Date(msg.createdAt).toLocaleString()} 
                 </p>
-              </div>;
-            })}
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
+      {/* 3. Bar Chart: Per Day Messages */}
       <div className="bg-white p-6 rounded-xl shadow mt-10">
-        <h2 className="text-lg font-semibold mb-4">Messages Bar Chart</h2>
-
+        <h2 className="text-lg font-semibold mb-4">Messages Bar Chart (Per Day)</h2>
         {chartData.length === 0 ? (
           <p>Loading message chart...</p>
         ) : (
@@ -196,7 +195,7 @@ export default function Dash() {
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="date" />
               <YAxis />
-              <Tooltip />
+              <Tooltip content={<ChartTooltip />} /> {/* ⬅️ Updated Tooltip */}
               <Legend />
               <Bar dataKey="count" fill="#6366F1" name="Per Day Messages" />
             </BarChart>
@@ -204,9 +203,10 @@ export default function Dash() {
         )}
       </div>
 
+      {/* 4. Line Chart: Messages Overview (Per Day Trend) */}
       <div className="bg-white p-6 rounded-xl shadow">
-        <h2 className="text-lg font-semibold mb-4">Messages Overview</h2>
-        {users.length === 0 ? (
+        <h2 className="text-lg font-semibold mb-4">Messages Overview (Daily Trend)</h2>
+        {chartData.length === 0 ? (
           <p>Loading message chart...</p>
         ) : (
           <ResponsiveContainer width="100%" height={300}>
@@ -214,21 +214,23 @@ export default function Dash() {
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="date" />
               <YAxis />
-              <Tooltip content={<CustomTooltip />} />
+              {/* 🛑 FIX: Tooltip should use ChartTooltip, not CustomTooltip */}
+              <Tooltip content={<ChartTooltip />} /> 
               <Line
                 type="monotone"
-                dataKey="message"
+                dataKey="count" // ⬅️ FIX: "message" से "count" में बदला गया
                 stroke="#6366F1"
                 strokeWidth={3}
+                name="Daily Messages"
               />
             </LineChart>
           </ResponsiveContainer>
         )}
       </div>
 
+      {/* 5. Quick Actions */}
       <div className="bg-white p-6 rounded-xl shadow-md ">
         <h2 className="text-xl font-semibold mb-4">Quick Actions ⚡</h2>
-
         <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
           {actions.map((item, index) => (
             <Link
