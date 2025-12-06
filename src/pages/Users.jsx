@@ -8,10 +8,9 @@ function Users() {
   useEffect(() => {
     api
     .get("/contact")
-      .then((res) => res.json())
-      .then((data) => {
+      .then((res) =>  {
         console.log("Api Data:", data);
-        setUsers(data);
+        setUsers(res.data);
       })
       .catch((err) => console.error("API Error:", err));
   }, []);
