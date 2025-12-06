@@ -24,7 +24,7 @@ export default function Dash() {
   const [data, setData] = useState([]);
   const [users, setUsers] = useState([]);
   const [chartData, setChartData] = useState([]);
-
+  const [loopedMessages, setLoopedMessages] = useState([]);
 
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
@@ -60,32 +60,34 @@ export default function Dash() {
   // ---- Backend se data ----
   useEffect(() => {
     api
-    .get("/contact")
-      .then((res) =>  {
+      .get("/contact")
+      .then((res) => {
         console.log("ONE SAMPLE ITEM ===>", res.data[0]);
-        console.log("messages",res.data);
+        console.log("messages", res.data);
+        setUsers(res.data);
+        setLoopedMessages([...res.data, ...res.data]);
         const data = res.data;
         // 🔥 Convert messages -> count per date
         const grouped = {};
 
-      data.forEach((item) => {
-        // Direct split se DATE 100% accurate
-        const date = item.createdAt.split(" ")[0];
+        data.forEach((item) => {
+          // Direct split se DATE 100% accurate
+          const date = item.createdAt.split(" ")[0];
 
-        if (!grouped[date]) grouped[date] = 0;
-        grouped[date]++;
-      });
+          if (!grouped[date]) grouped[date] = 0;
+          grouped[date]++;
+        });
 
-      const formatted = Object.keys(grouped).map((date) => ({
-        date,
-        count: grouped[date],
-      }));
+        const formatted = Object.keys(grouped).map((date) => ({
+          date,
+          count: grouped[date],
+        }));
 
-      console.log("FINAL PIE DATA:", formatted);
-      setChartData(formatted);
-    })
-    .catch((err) => console.log(err));
-}, []);
+        console.log("FINAL PIE DATA:", formatted);
+        setChartData(formatted);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   const COLORS = ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0", "#8B5CF6"];
 
@@ -102,7 +104,6 @@ export default function Dash() {
     },
   ];
   //for messages show in loops
-  const loopedMessages = [...users, ...users];
 
   useEffect(() => {
     const box = document.getElementById("scrollBox");
@@ -159,7 +160,9 @@ export default function Dash() {
           {/* <h2 className="text-lg font-semibold mb-4">All Messages</h2> */}
 
           <div className="space-y-4">
-            {loopedMessages.map((msg, i) => (
+            {loopedMessages.map((msg, i) => {
+              const safeDate = msg.createAt.replace(" ", "T");
+
               <div
                 key={i}
                 className="border p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition"
@@ -176,8 +179,8 @@ export default function Dash() {
                 <p className="text-xs text-gray-500">
                   {new Date(msg.createdAt).toLocaleString()}
                 </p>
-              </div>
-            ))}
+              </div>;
+            })}
           </div>
         </div>
       </div>
@@ -207,9 +210,9 @@ export default function Dash() {
           <p>Loading message chart...</p>
         ) : (
           <ResponsiveContainer width="100%" height={300}>
-            <LineChart data={users}>
+            <LineChart data={chartData}>
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="createdAt" />
+              <XAxis dataKey="date" />
               <YAxis />
               <Tooltip content={<CustomTooltip />} />
               <Line
