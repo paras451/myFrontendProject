@@ -7,7 +7,7 @@ function Users() {
 
   useEffect(() => {
     api
-    .grt("/contact")
+    .get("/contact")
       .then((res) => res.json())
       .then((data) => {
         console.log("Api Data:", data);
