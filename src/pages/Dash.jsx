@@ -62,7 +62,7 @@ export default function Dash() {
     api
     .get("/contact")
       .then((res) =>  {
-        console.log("Messages API:", res.data);
+        console.log("ONE SAMPLE ITEM ===>", res.data[0]);
         setUsers(res.data);
         // 🔥 Convert messages -> count per date
         const grouped = {};
