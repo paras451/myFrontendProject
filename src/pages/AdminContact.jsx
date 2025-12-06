@@ -1,8 +1,8 @@
 import React from "react";
 
 import { useState, useEffect } from "react";
-// import api from "api";
-import api from "../apiConfig";
+import axios from "axios";
+import api from "../axiosConfig";
 
 function AdminContact() {
   const [data, setData] = useState([]);
@@ -116,7 +116,7 @@ function AdminContact() {
 
   const deletesItems = (id) => {
     api
-      .delete(`2/ContactT3/${id}`)
+      .delete(`/ContactT3/${id}`)
       .then(() => {
         setRefreshhh((prev) => !prev);
       })
