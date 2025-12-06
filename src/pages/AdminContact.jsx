@@ -1,8 +1,8 @@
 import React from "react";
 
 import { useState, useEffect } from "react";
-import axios from "axios";
-import api from "../axiosConfig";
+// import api from "api";
+import api from "../apiConfig";
 
 function AdminContact() {
   const [data, setData] = useState([]);
@@ -60,8 +60,8 @@ function AdminContact() {
   };
 
   const updatesData = () => {
-    axios
-      .put(`http://localhost:8082/ContactT2/${editingg.id}`, editingg)
+    api
+      .put(`/ContactT2/${editingg.id}`, editingg)
       .then((res) => {
         setMainss(
           mainss.map((mai) => (mai.id === editingg.id ? res.data : mai))
@@ -73,8 +73,8 @@ function AdminContact() {
   };
 
   const deletesItem = (id) => {
-    axios
-      .delete(`http://localhost:8082/ContactT2/${id}`)
+    api
+      .delete(`/ContactT2/${id}`)
       .then(() => {
         setRefreshh((prev) => !prev);
       })
@@ -82,8 +82,8 @@ function AdminContact() {
   };
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/ContactT2")
+    api
+      .get("/ContactT2")
       .then((res) => {
         console.log("MAINS API RESPONSE:", res.data);
         setMainss(res.data);
@@ -102,8 +102,8 @@ function AdminContact() {
   };
 
   const updatessData = () => {
-    axios
-      .put(`http://localhost:8082/ContactT3/${editinggg.id}`, editinggg)
+    api
+      .put(`/ContactT3/${editinggg.id}`, editinggg)
       .then((res) => {
         setMainsss(
           mainsss.map((ma) => (ma.id === editinggg.id ? res.data : ma))
@@ -115,8 +115,8 @@ function AdminContact() {
   };
 
   const deletesItems = (id) => {
-    axios
-      .delete(`http://localhost:8082/ContactT3/${id}`)
+    api
+      .delete(`2/ContactT3/${id}`)
       .then(() => {
         setRefreshhh((prev) => !prev);
       })
@@ -124,8 +124,8 @@ function AdminContact() {
   };
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/ContactT3")
+    api
+      .get("/ContactT3")
       .then((res) => {
         console.log("MAINS API RESPONSE:", res.data);
         setMainsss(res.data);
