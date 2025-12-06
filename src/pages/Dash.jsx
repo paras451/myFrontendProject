@@ -31,6 +31,11 @@ export default function Dash() {
   // ✅ New Tooltip for Bar and Line Charts (shows date and count)
   const ChartTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
+      const displayDate = label || payload[0].name; // जो भी उपलब्ध हो, उसका उपयोग करें
+    const displayValue = payload[0].value;
+    
+    // अगर PieChart में nameKey सेट है, तो name में date आएगा 
+    const isPieChart = !label && payload[0].name;
       return (
         <div
           style={{
@@ -42,10 +47,10 @@ export default function Dash() {
           }}
         >
           <p className="text-sm">
-            <strong>Date:</strong> {label}
+            <strong>Date:</strong> {displayDate}
           </p>
           <p className="text-lg font-bold">
-            {`Messages: ${payload[0].value}`}
+            {`Messages: ${displayValue}`}
           </p>
         </div>
       );
@@ -133,8 +138,8 @@ export default function Dash() {
             <PieChart>
               <Pie
                 data={chartData}
-                dataKey="date"
-                nameKey="count"
+                dataKey="count"
+                nameKey="date"
                 cx="50%"
                 cy="50%"
                 outerRadius={120}
