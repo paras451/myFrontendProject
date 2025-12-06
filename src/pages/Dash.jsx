@@ -133,7 +133,7 @@ export default function Dash() {
             <PieChart>
               <Pie
                 data={chartData}
-                dataKey="count"
+                dataKey="date"
                 nameKey="date"
                 cx="50%"
                 cy="50%"
