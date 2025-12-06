@@ -22,12 +22,9 @@ import { Link } from "react-router-dom";
 
 export default function Dash() {
   const [data, setData] = useState([]);
-  // const [sales, setSales] = useState([]);
   const [users, setUsers] = useState([]);
-  // const [orders, setOrders] = useState([]);
   const [chartData, setChartData] = useState([]);
 
-  const [pieData, setPieData] = useState([]);
 
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
@@ -65,7 +62,7 @@ export default function Dash() {
     api
     .get("/contact")
       .then((res) =>  {
-        console.log("Messages API:", data);
+        console.log("Messages API:", res.data);
         setUsers(res.data);
         // 🔥 Convert messages -> count per date
         const grouped = {};
