@@ -13,7 +13,7 @@ function Navbar() {
         <img
           src={logo}
           alt="Logo"
-          className="w-auto  md:h-14 lg:h-14 object-scale-down transition-transform duration-200 hover:scale-150 "
+          className="w-auto h-14 md:h-14 lg:h-14 object-scale-down transition-transform duration-200 hover:scale-150 "
         />
       </div>
 
