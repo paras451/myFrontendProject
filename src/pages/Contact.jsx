@@ -159,7 +159,7 @@ const Contact = () => {
       >
         {/* Get in  */}
         {mainData?.title?.split("").slice(0, 6).join("")}{" "}
-        <span className="text-blue-700">
+        <span className="text-sky-500">
           {/* Touch  */}
           {mainData?.title?.split("").slice("6").join("")}
         </span>
@@ -191,7 +191,7 @@ const Contact = () => {
               </label>
               <input
                 type="text"
-                className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-sky-500 focus:outline-none"
                 placeholder="Enter your name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -207,7 +207,7 @@ const Contact = () => {
               </label>
               <input
                 type="email"
-                className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-sky-500 focus:outline-none"
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -233,7 +233,7 @@ const Contact = () => {
 
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-all"
+              className="w-full bg-sky-500 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-all"
               data-aos="fade-up"
             >
               {/* Send Message */}
@@ -244,7 +244,7 @@ const Contact = () => {
 
         {/* Right Panel */}
         <div
-          className="flex flex-col justify-center bg-blue-600 text-white rounded-2xl p-8 shadow-xl relative overflow-hidden"
+          className="flex flex-col justify-center bg-sky-500 text-white rounded-2xl p-8 shadow-xl relative overflow-hidden"
           data-aos="flip-left"
         >
           <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/20 rounded-full blur-xl"></div>

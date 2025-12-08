@@ -71,7 +71,7 @@ opacity: 0.6;
           {/* Our  */}
           {mainData?.mainTitle.split(" ").slice(0, 1).join(" ")}{" "}
           {/* <br className="hidden sm:inline" /> */}
-          <span className="text-blue-700">
+          <span className="text-sky-500">
             {/* Services */}
             {mainData?.mainTitle.split(" ").slice(1).join(" ")}
           </span>
@@ -98,7 +98,7 @@ opacity: 0.6;
                 className="bg-white shadow-md rounded-2xl p-8 h-60  hover:shadow-[0_0_25px_#3b82f6] transition-all duration-300"
                 data-aos="fade-down"
               >
-                <h3 className="text-xl font-semibold text-blue-700 mb-3">
+                <h3 className="text-xl font-semibold text-sky-500 mb-3">
                   {/* Web App Development */} {itemData?.mainTitle}
                 </h3>
                 <p className="text-gray-600">
@@ -118,7 +118,7 @@ opacity: 0.6;
                 className="bg-white shadow-md rounded-2xl p-8 hover:shadow-[0_0_25px_#3b82f6] transition-all duration-300"
                 data-aos="fade-down"
               >
-                <h3 className="text-xl font-semibold text-blue-700 mb-3">
+                <h3 className="text-xl font-semibold text-sky-500 mb-3">
                   {/* Mobile App Development */} {itemData?.mainTitle}
                 </h3>
                 <p className="text-gray-600">
@@ -139,7 +139,7 @@ opacity: 0.6;
                 className="bg-white shadow-md rounded-2xl p-8 hover:shadow-[0_0_25px_#3b82f6] transition-all duration-300"
                 data-aos="fade-down"
               >
-                <h3 className="text-xl font-semibold text-blue-700 mb-3">
+                <h3 className="text-xl font-semibold text-sky-500 mb-3">
                   {/* UI / UX Design */}
                   {itemData?.mainTitle}
                 </h3>
@@ -161,7 +161,7 @@ opacity: 0.6;
                 className="bg-white shadow-md rounded-2xl h-60 p-8 hover:shadow-[0_0_25px_#3b82f6] transition-all duration-300"
                 data-aos="fade-down"
               >
-                <h3 className="text-xl font-semibold text-blue-700 mb-3">
+                <h3 className="text-xl font-semibold text-sky-500 mb-3">
                   {/* Custom Software Solutions */}
                   {itemData?.mainTitle}
                 </h3>
@@ -182,7 +182,7 @@ opacity: 0.6;
                 className="bg-white shadow-md rounded-2xl p-8 hover:shadow-[0_0_25px_#3b82f6] transition-all duration-300"
                 data-aos="fade-down"
               >
-                <h3 className="text-xl font-semibold text-blue-700 mb-3">
+                <h3 className="text-xl font-semibold text-sky-500 mb-3">
                   {/* API & Integration */}
                   {itemData?.mainTitle}
                 </h3>
@@ -202,7 +202,7 @@ opacity: 0.6;
                 className="bg-white shadow-md rounded-2xl p-8 hover:shadow-[0_0_25px_#3b82f6] transition-all duration-300"
                 data-aos="fade-down"
               >
-                <h3 className="text-xl font-semibold text-blue-700 mb-3">
+                <h3 className="text-xl font-semibold text-sky-500 mb-3">
                   {/* Maintenance & Support */} {itemData?.mainTitle}
                 </h3>
                 <p className="text-gray-600">
@@ -229,7 +229,7 @@ opacity: 0.6;
               className="cursor-pointer md:h-60 p-8 border rounded-xl shadow  bg-white hover:shadow-[0_0_25px_#3b82f6] transition-all duration-300 items-center md:w-90  "
               data-aos="flip-right"
             >
-              <h2 className="text-xl font-bold mb-2 text-blue-700">
+              <h2 className="text-xl font-bold mb-2 text-sky-500">
                 {/* Advanced ECommerce Development */} {itemData?.mainTitle}
               </h2>
               <p className="text-gray-600">

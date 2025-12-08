@@ -58,7 +58,7 @@ export default function AboutUs() {
       {/* Heading */}
 
       <div className="text-center mb-12" data-aos="fade-down">
-        <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-blue-700">
+        <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-sky-500">
           {/* About Us */} {mainData?.title}
         </h1>
         <p className="text-lg max-w-3xl mx-auto text-gray-600">
@@ -71,7 +71,7 @@ export default function AboutUs() {
       {/* Mission Section */}
       <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
         <div data-aos="zoom-in">
-          <h2 className="text-3xl font-bold mb-4 text-blue-700">
+          <h2 className="text-3xl font-bold mb-4 text-sky-500">
             {mainData?.sub_title1}
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -85,7 +85,7 @@ export default function AboutUs() {
 
         <div data-aos="zoom-out">
           <div className="w-full h-64  rounded-2xl  flex items-center justify-center">
-            <Target className="text-blue-600" size={270} />
+            <Target className="text-sky-500" size={270} />
           </div>
         </div>
       </div>
@@ -93,7 +93,7 @@ export default function AboutUs() {
       {/* Vision Section */}
       <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
         <div className="md:order-2" data-aos="zoom-in">
-          <h2 className="text-3xl font-bold mb-4 text-blue-600">
+          <h2 className="text-3xl font-bold mb-4 text-sky-500">
             {mainData?.sub_title2}
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -114,14 +114,14 @@ export default function AboutUs() {
 
       {/* Core Values */}
       <div className="text-center mb-12" data-aos="fade-up">
-        <h2 className="text-3xl font-bold text-blue-700 mb-6">
+        <h2 className="text-3xl font-bold text-sky-500 mb-6">
           {mainsData?.title}
         </h2>
       </div>
 
       <div className="grid md:grid-cols-3 gap-10">
         <div className="bg-white rounded-xl shadow-md p-8" data-aos="zoom-in">
-          <h3 className="text-xl font-semibold text-blue-600 mb-3">
+          <h3 className="text-xl font-semibold text-sky-500 mb-3">
             {mainsData?.sub_title1}
           </h3>
           <p className="text-gray-600">
@@ -132,7 +132,7 @@ export default function AboutUs() {
         </div>
 
         <div className="bg-white rounded-xl shadow-md p-8" data-aos="zoom-in">
-          <h3 className="text-xl font-semibold text-blue-600 mb-3">
+          <h3 className="text-xl font-semibold text-sky-500 mb-3">
             {mainsData?.sub_title2}
           </h3>
           <p className="text-gray-600">
@@ -143,7 +143,7 @@ export default function AboutUs() {
         </div>
 
         <div className="bg-white rounded-xl shadow-md p-8" data-aos="zoom-in">
-          <h3 className="text-xl font-semibold text-blue-600 mb-3">
+          <h3 className="text-xl font-semibold text-sky-500 mb-3">
             {mainsData?.sub_title3}
           </h3>
           <p className="text-gray-600">
@@ -156,7 +156,7 @@ export default function AboutUs() {
 
       {/* Team Section */}
       <div className="text-center mt-20 mb-12" data-aos="fade-up">
-        <h2 className="text-3xl font-bold text-blue-700 mb-4">
+        <h2 className="text-3xl font-bold text-sky-500 mb-4">
           {mainssData?.title}
         </h2>
         <p className="text-gray-600 max-w-2xl mx-auto">

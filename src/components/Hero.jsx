@@ -46,16 +46,18 @@ function Hero() {
         <h1
           className="
     text-4xl md:text-6xl font-extrabold leading-tight mb-6 text-glow 
-    animate-glow animate-float 
-  "
+    animate-glow animate-float"
           data-aos="flip-down"
-        >
-          <span className="inline-block animate-float">
-            {heroData?.title}
+        > 
+        {heroData?.title.split(" ").slice(0,1).join(" ")}{" "}
+
+          <span className="text-sky-300">
+            {heroData?.title.split(" ").slice(1,2).join(" ")}{" "}
             {/* Build <span className="text-blue-200">Powerful</span> Digital
             Solutions
             <br /> for Web & Mobile */}
           </span>
+           {heroData?.title.split(" ").slice(2).join(" ")}
         </h1>
 
         <p
@@ -68,7 +70,7 @@ function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-float ">
-          <button className="bg-blue-500 hover:bg-blue-600 px-8 py-3 rounded-lg font-semibold shadow-md hover:shadow-blue-400/30 transition-all">
+          <button className="bg-sky-500 hover:bg-blue-600 px-8 py-3 rounded-lg font-semibold shadow-md hover:shadow-blue-400/30 transition-all">
             Get Started
           </button>
 

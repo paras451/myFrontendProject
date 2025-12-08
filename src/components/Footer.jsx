@@ -8,7 +8,7 @@ const Footer = () => {
         {/* Column 1 - Brand */}
         <div>
           <h2 className="text-2xl font-bold text-white mb-4">
-            Custom<span className="text-blue-700">Tech</span>Labs
+            Custom<span className="text-sky-500">Tech</span>Labs
           </h2>
           <p className="text-gray-400 text-sm leading-relaxed">
             Building innovative digital experiences that transform your ideas
@@ -89,7 +89,7 @@ const Footer = () => {
             />
             <button
               type="submit"
-              className="bg-blue-600 hover:bg-blue-700 transition text-white px-4 py-2 rounded-lg"
+              className="bg-sky-500 hover:bg-blue-700 transition text-white px-4 py-2 rounded-lg"
             >
               Subscribe
             </button>

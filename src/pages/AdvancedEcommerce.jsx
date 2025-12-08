@@ -63,7 +63,7 @@ const AdvancedEcommerce = () => {
           className="text-4xl font-extrabold mb-4 drop-shadow-lg text-white"
           data-aos="flip-right"
         >
-          <span className="text-blue-700">
+          <span className="text-sky-500">
             {mainData?.mainTitle?.split(" ").slice(0, 1).join(" ")}{" "}
           </span>
 
@@ -83,7 +83,7 @@ const AdvancedEcommerce = () => {
 
       {/* Core Features */}
       <h2 className="text-2xl font-bold mb-6" data-aos="zoom-out">
-        <span className="text-blue-700">
+        <span className="text-sky-500">
           {" "}
           {mainss.find((i) => i.position === 1)?.title}{" "}
         </span>
@@ -102,7 +102,7 @@ const AdvancedEcommerce = () => {
 
       {/* Advanced Modules */}
       <h2 className="text-2xl font-bold mb-6" data-aos="zoom-out">
-        <span className="text-blue-700">
+        <span className="text-sky-500">
           {" "}
           {mainsss.find((i) => i.position === 1)?.title}{" "}
         </span>

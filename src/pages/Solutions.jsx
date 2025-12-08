@@ -45,7 +45,7 @@ const Solutions = () => {
         >
           {/* Our Tailored  */}
           {mainData?.title.split(" ").slice(0, 2).join(" ")}{" "}
-          <span className="text-blue-700">
+          <span className="text-sky-500">
             {mainData?.title.split(" ").slice(2).join(" ")}
           </span>
         </h2>
@@ -67,7 +67,7 @@ const Solutions = () => {
               className="bg-linear-to-br from-blue-50 to-cyan-300 shadow-lg hover:shadow-2xl rounded-2xl p-8 flex flex-col items-center text-center transition-transform hover:-translate-y-4 duration-300 w-[90%] sm:w-[45%] lg:w-[28%] "
               data-aos="flip-up"
             >
-              <div className="bg-blue-600 text-white text-4xl w-16 h-16 flex items-center justify-center rounded-full mb-5 shadow-md">
+              <div className="bg-sky-500 text-white text-4xl w-16 h-16 flex items-center justify-center rounded-full mb-5 shadow-md">
                 {item.icon}
               </div>
               <h3 className="text-xl font-semibold text-gray-800 mb-3">

@@ -63,14 +63,14 @@ const Industries = () => {
           className="text-6xl font-bold text-gray-800 mb-4"
           data-aos="flip-up"
         >
-          <span className="text-blue-700">
+          <span className="text-sky-500">
             {mainData?.title?.split("").slice(0, 10).join("")}{" "}
           </span>
           {mainData?.title?.split(" ").slice(1).join(" ")}
           {/* We Serve */}
         </h2>
         <p
-          className="text-cyan-500 max-w-3xl mx-auto mb-10 hover:underline cusror-pointer"
+          className="text-cyan-800 max-w-3xl mx-auto mb-10 hover:underline cusror-pointer"
           data-aos="flip-down"
         >
           {/* We specialize in building scalable, high-performance digital solutions
@@ -86,7 +86,7 @@ const Industries = () => {
             className="bg-white rounded-2xl shadow-md p-10 mb-10 text-left w-full md:w-auto hover:shadow-xl transition-shadow"
             data-aos="flip-right"
           >
-            <h3 className="text-2xl font-semibold text-blue-700 mb-4">
+            <h3 className="text-2xl font-semibold text-sky-500 mb-4">
               {/* Healthcare */}
               {mainData?.sub_title1}
             </h3>
@@ -129,7 +129,7 @@ const Industries = () => {
             className="bg-white rounded-2xl shadow-md p-10 mb-10 text-left md:h-73 w-full md:w-auto hover:shadow-xl transition-shadow lg:h-63"
             data-aos="flip-left"
           >
-            <h3 className="text-2xl font-semibold text-blue-700 mb-4">
+            <h3 className="text-2xl font-semibold text-sky-500 mb-4">
               {/* E-Commerce */}
               {mainData?.sub_title2}
             </h3>
@@ -171,7 +171,7 @@ const Industries = () => {
       {/* === Toggle Button === */}
       <button
         onClick={() => setShowOther(!showOther)}
-        className="bg-blue-600 text-white px-10 py-3 md:justify-center md:items-center rounded-full font-medium hover:bg-blue-500 transition-all mt-0 mx-auto block"
+        className="bg-sky-500 text-white px-10 py-3 md:justify-center md:items-center rounded-full font-medium hover:bg-blue-500 transition-all mt-0 mx-auto block"
       >
         {showOther ? "Hide  Other Industries" : "Our Other Industries"}
       </button>
@@ -179,7 +179,7 @@ const Industries = () => {
       {showOther && (
         <div className="mt-10 bg-white rounded-2xl shadow-md p-8 w-full">
           <h3
-            className="text-2xl font-semibold text-blue-700 mb-4"
+            className="text-2xl font-semibold text-sky-500 mb-4"
             data-aos="zoom-in"
           >
             {/* Our Other Industries */}
