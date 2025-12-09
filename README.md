@@ -7,33 +7,18 @@ A responsive and modular frontend application built using React. This project pr
 ## Features
 
 * Component-based architecture
-* API integration using Axios / Fetch
-* State management with React Hooks
+* API integration using Axios 
 * Responsive layout
 * Routing with React Router
 * Reusable UI components
 
 ## Tech Stack
 
-* **React** (Create React App or Vite)
-* **JavaScript / TypeScript**
+* **React** 
+* **JavaScript**
 * **React Router**
 * **Axios**
-* **TailwindCSS / CSS Modules** (your choice)
-
-## File Structure
-
-```
-src/
- ├── components
- ├── pages
- ├── hooks
- ├── services
- ├── assets
- ├── context (optional)
- ├── App.js / App.jsx
- └── main.jsx
-```
+* **TailwindCSS** 
 
 ## How to Run
 
