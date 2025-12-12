@@ -18,6 +18,17 @@ function App() {
     });
   }, []);
 
+
+  useEffect(() => {
+  const interval = setInterval(() => {
+    fetch(import.meta.env.VITE_BACKEND_URL + "/ping")
+      .catch(() => {});
+  }, 5 * 60 * 1000); // every 5 minutes
+
+  return () => clearInterval(interval);
+}, []);
+
+
   return (
     <>
       <AOSController />
